@@ -45,7 +45,7 @@ jobs:
       uses: docker/build-push-action@v4.1.1
       with:
         context: .
-        file: ./Dockerfile
+        file: ./src/Assinatura.Api/Dockerfile
         push: true
         tags: ${{ secrets.DOCKER_HUB_USER}}/${{ env.IMAGE_NAME }}:${{ env.BUILD_TAG }},${{ secrets.DOCKER_HUB_USER}}/${{ env.IMAGE_NAME }}:latest
     
