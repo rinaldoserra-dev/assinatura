@@ -1,8 +1,13 @@
+using WkHtmlToPdfDotNet.Contracts;
+using WkHtmlToPdfDotNet;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
+
+builder.Services.AddSingleton(typeof(IConverter), new SynchronizedConverter(new PdfTools()));
 
 builder.Services.AddCors(p => p.AddPolicy("CORS", builder =>
  {
